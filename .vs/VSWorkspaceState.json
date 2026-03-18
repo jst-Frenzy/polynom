@@ -8,13 +8,10 @@
   "ExpandedNodes": [
     "",
     "\\base",
-    "\\build",
-    "\\build\\parser",
-    "\\out",
     "\\out\\build",
     "\\parser",
     "\\samples"
   ],
-  "SelectedNode": "\\base\\polynomy.h",
+  "SelectedNode": "\\base\\CMakeLists.txt",
   "PreviewInSolutionExplorer": false
 }

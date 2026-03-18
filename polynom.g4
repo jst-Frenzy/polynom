@@ -1,7 +1,7 @@
 grammar polynom;
 
-INT: [0-9]+;
-FLOAT: [0-9]+ '.' [0-9]+;
+INT: [+-]?[0-9]+;
+FLOAT: [+-]?[0-9]+ '.' [0-9]+;
 SEP: ';';
 WS: [ \t\r\n]+ -> skip;
 
@@ -14,8 +14,8 @@ VAR: [xyz];
 
 prog: polynom (SEP polynom)* ;
 
-polynom: (SUB)? monom ((ADD | SUB) monom)* EOF ;
+polynom: monom ((ADD | SUB) monom)*;
 
-monom: (FLOAT | INT) (MUL varClose)+ | varClose (MUL varClose)* | (FLOAT | INT);
+monom: FLOAT (MUL varClose)+ | varClose (MUL varClose)* | FLOAT ;
 
-varClose: VAR POW (INT | SUB INT) ;
+varClose: VAR POW INT ;

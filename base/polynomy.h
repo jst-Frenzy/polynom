@@ -261,7 +261,7 @@ public:
 
 		while (curr != nullptr && pol1 != nullptr) {
 			if (pol1->d.degrees > curr->d.degrees) {
-				Monom* m = new Monom(curr->coef, curr->d.degrees);
+				Monom* m = new Monom(curr->coef, curr->d);
 				m->next = nullptr;
 				if (last == nullptr) {
 					res.fp = m;
@@ -274,7 +274,7 @@ public:
 				curr = curr->next;
 			}
 			else if (pol1->d.degrees < curr->d.degrees) {
-				Monom* m = new Monom(curr->coef, curr->d.degrees);
+				Monom* m = new Monom(pol1->coef, pol1->d);
 				m->next = nullptr;
 				if (last == nullptr) {
 					res.fp = m;

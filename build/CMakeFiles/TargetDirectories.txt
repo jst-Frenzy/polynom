@@ -1,6 +1,0 @@
-C:/projects/vs/polynomy/build/CMakeFiles/ALL_BUILD.dir
-C:/projects/vs/polynomy/build/CMakeFiles/ZERO_CHECK.dir
-C:/projects/vs/polynomy/build/parser/CMakeFiles/parser.dir
-C:/projects/vs/polynomy/build/parser/CMakeFiles/ALL_BUILD.dir
-C:/projects/vs/polynomy/build/base/CMakeFiles/polynom.dir
-C:/projects/vs/polynomy/build/samples/CMakeFiles/main.dir

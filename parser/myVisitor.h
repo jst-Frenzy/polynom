@@ -11,28 +11,21 @@ public:
 	myVisitor (Polynom* _p) : p(_p), currSign(1.0) {}
 
 	virtual antlrcpp::Any visitPolynom(polynomParser::PolynomContext* ctx) override {
-		currSign = 1.0;
 		return visitChildren(ctx);
 	}
 
 	virtual antlrcpp::Any visitMonom(polynomParser::MonomContext* ctx) override {
 		double coef = 1.0;
-		if (ctx->INT()) {
-			coef = std::stod(ctx->INT()->getText());
-		}
-		else if (ctx->FLOAT()) {
+
+		if (ctx->FLOAT().size() > 0) {
 			coef = std::stod(ctx->FLOAT()->getText());
 		}
-		coef *= currSign;
+
 		int  degX = 0, degY = 0, degZ = 0;
 
 		for (auto varCtx : ctx->varClose()) {
 			std::string varName = varCtx->VAR()->getText();
 			int d = std::stoi(varCtx->INT()->getText());
-
-			if (varCtx->SUB()) {
-				d = -d;
-			}
 
 			if (varName == "x") {
 				degX += d;

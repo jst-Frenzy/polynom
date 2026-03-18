@@ -62,22 +62,20 @@ void polynomParserInitialize() {
     }
   );
   static const int32_t serializedATNSegment[] = {
-  	4,1,9,52,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,1,0,1,0,1,0,5,0,12,8,0,10,0,
-  	12,0,15,9,0,1,1,1,1,1,1,5,1,20,8,1,10,1,12,1,23,9,1,1,1,1,1,1,2,1,2,1,
-  	2,4,2,30,8,2,11,2,12,2,31,1,2,1,2,1,2,5,2,37,8,2,10,2,12,2,40,9,2,1,2,
-  	3,2,43,8,2,1,3,1,3,1,3,1,3,1,3,3,3,50,8,3,1,3,0,0,4,0,2,4,6,0,2,1,0,7,
-  	8,1,0,1,2,54,0,8,1,0,0,0,2,16,1,0,0,0,4,42,1,0,0,0,6,44,1,0,0,0,8,13,
-  	3,2,1,0,9,10,5,3,0,0,10,12,3,2,1,0,11,9,1,0,0,0,12,15,1,0,0,0,13,11,1,
-  	0,0,0,13,14,1,0,0,0,14,1,1,0,0,0,15,13,1,0,0,0,16,21,3,4,2,0,17,18,7,
-  	0,0,0,18,20,3,4,2,0,19,17,1,0,0,0,20,23,1,0,0,0,21,19,1,0,0,0,21,22,1,
-  	0,0,0,22,24,1,0,0,0,23,21,1,0,0,0,24,25,5,0,0,1,25,3,1,0,0,0,26,29,7,
-  	1,0,0,27,28,5,5,0,0,28,30,3,6,3,0,29,27,1,0,0,0,30,31,1,0,0,0,31,29,1,
-  	0,0,0,31,32,1,0,0,0,32,43,1,0,0,0,33,38,3,6,3,0,34,35,5,5,0,0,35,37,3,
-  	6,3,0,36,34,1,0,0,0,37,40,1,0,0,0,38,36,1,0,0,0,38,39,1,0,0,0,39,43,1,
-  	0,0,0,40,38,1,0,0,0,41,43,7,1,0,0,42,26,1,0,0,0,42,33,1,0,0,0,42,41,1,
-  	0,0,0,43,5,1,0,0,0,44,45,5,9,0,0,45,49,5,6,0,0,46,50,5,1,0,0,47,48,5,
-  	8,0,0,48,50,5,1,0,0,49,46,1,0,0,0,49,47,1,0,0,0,50,7,1,0,0,0,6,13,21,
-  	31,38,42,49
+  	4,1,9,47,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,1,0,1,0,1,0,5,0,12,8,0,10,0,
+  	12,0,15,9,0,1,1,1,1,1,1,5,1,20,8,1,10,1,12,1,23,9,1,1,2,1,2,1,2,4,2,28,
+  	8,2,11,2,12,2,29,1,2,1,2,1,2,5,2,35,8,2,10,2,12,2,38,9,2,1,2,3,2,41,8,
+  	2,1,3,1,3,1,3,1,3,1,3,0,0,4,0,2,4,6,0,1,1,0,7,8,48,0,8,1,0,0,0,2,16,1,
+  	0,0,0,4,40,1,0,0,0,6,42,1,0,0,0,8,13,3,2,1,0,9,10,5,3,0,0,10,12,3,2,1,
+  	0,11,9,1,0,0,0,12,15,1,0,0,0,13,11,1,0,0,0,13,14,1,0,0,0,14,1,1,0,0,0,
+  	15,13,1,0,0,0,16,21,3,4,2,0,17,18,7,0,0,0,18,20,3,4,2,0,19,17,1,0,0,0,
+  	20,23,1,0,0,0,21,19,1,0,0,0,21,22,1,0,0,0,22,3,1,0,0,0,23,21,1,0,0,0,
+  	24,27,5,2,0,0,25,26,5,5,0,0,26,28,3,6,3,0,27,25,1,0,0,0,28,29,1,0,0,0,
+  	29,27,1,0,0,0,29,30,1,0,0,0,30,41,1,0,0,0,31,36,3,6,3,0,32,33,5,5,0,0,
+  	33,35,3,6,3,0,34,32,1,0,0,0,35,38,1,0,0,0,36,34,1,0,0,0,36,37,1,0,0,0,
+  	37,41,1,0,0,0,38,36,1,0,0,0,39,41,5,2,0,0,40,24,1,0,0,0,40,31,1,0,0,0,
+  	40,39,1,0,0,0,41,5,1,0,0,0,42,43,5,9,0,0,43,44,5,6,0,0,44,45,5,1,0,0,
+  	45,7,1,0,0,0,5,13,21,29,36,40
   };
   staticData->serializedATN = antlr4::atn::SerializedATNView(serializedATNSegment, sizeof(serializedATNSegment) / sizeof(serializedATNSegment[0]));
 
@@ -214,10 +212,6 @@ polynomParser::MonomContext* polynomParser::PolynomContext::monom(size_t i) {
   return getRuleContext<polynomParser::MonomContext>(i);
 }
 
-tree::TerminalNode* polynomParser::PolynomContext::EOF() {
-  return getToken(polynomParser::EOF, 0);
-}
-
 std::vector<tree::TerminalNode *> polynomParser::PolynomContext::ADD() {
   return getTokens(polynomParser::ADD);
 }
@@ -286,8 +280,6 @@ polynomParser::PolynomContext* polynomParser::polynom() {
       _errHandler->sync(this);
       _la = _input->LA(1);
     }
-    setState(24);
-    match(polynomParser::EOF);
    
   }
   catch (RecognitionException &e) {
@@ -307,10 +299,6 @@ polynomParser::MonomContext::MonomContext(ParserRuleContext *parent, size_t invo
 
 tree::TerminalNode* polynomParser::MonomContext::FLOAT() {
   return getToken(polynomParser::FLOAT, 0);
-}
-
-tree::TerminalNode* polynomParser::MonomContext::INT() {
-  return getToken(polynomParser::INT, 0);
 }
 
 std::vector<tree::TerminalNode *> polynomParser::MonomContext::MUL() {
@@ -355,31 +343,22 @@ polynomParser::MonomContext* polynomParser::monom() {
     exitRule();
   });
   try {
-    setState(42);
+    setState(40);
     _errHandler->sync(this);
     switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 4, _ctx)) {
     case 1: {
       enterOuterAlt(_localctx, 1);
-      setState(26);
-      _la = _input->LA(1);
-      if (!(_la == polynomParser::INT
-
-      || _la == polynomParser::FLOAT)) {
-      _errHandler->recoverInline(this);
-      }
-      else {
-        _errHandler->reportMatch(this);
-        consume();
-      }
-      setState(29); 
+      setState(24);
+      match(polynomParser::FLOAT);
+      setState(27); 
       _errHandler->sync(this);
       _la = _input->LA(1);
       do {
-        setState(27);
+        setState(25);
         match(polynomParser::MUL);
-        setState(28);
+        setState(26);
         varClose();
-        setState(31); 
+        setState(29); 
         _errHandler->sync(this);
         _la = _input->LA(1);
       } while (_la == polynomParser::MUL);
@@ -388,17 +367,17 @@ polynomParser::MonomContext* polynomParser::monom() {
 
     case 2: {
       enterOuterAlt(_localctx, 2);
-      setState(33);
+      setState(31);
       varClose();
-      setState(38);
+      setState(36);
       _errHandler->sync(this);
       _la = _input->LA(1);
       while (_la == polynomParser::MUL) {
-        setState(34);
+        setState(32);
         match(polynomParser::MUL);
-        setState(35);
+        setState(33);
         varClose();
-        setState(40);
+        setState(38);
         _errHandler->sync(this);
         _la = _input->LA(1);
       }
@@ -407,17 +386,8 @@ polynomParser::MonomContext* polynomParser::monom() {
 
     case 3: {
       enterOuterAlt(_localctx, 3);
-      setState(41);
-      _la = _input->LA(1);
-      if (!(_la == polynomParser::INT
-
-      || _la == polynomParser::FLOAT)) {
-      _errHandler->recoverInline(this);
-      }
-      else {
-        _errHandler->reportMatch(this);
-        consume();
-      }
+      setState(39);
+      match(polynomParser::FLOAT);
       break;
     }
 
@@ -453,10 +423,6 @@ tree::TerminalNode* polynomParser::VarCloseContext::INT() {
   return getToken(polynomParser::INT, 0);
 }
 
-tree::TerminalNode* polynomParser::VarCloseContext::SUB() {
-  return getToken(polynomParser::SUB, 0);
-}
-
 
 size_t polynomParser::VarCloseContext::getRuleIndex() const {
   return polynomParser::RuleVarClose;
@@ -483,30 +449,12 @@ polynomParser::VarCloseContext* polynomParser::varClose() {
   });
   try {
     enterOuterAlt(_localctx, 1);
-    setState(44);
+    setState(42);
     match(polynomParser::VAR);
-    setState(45);
+    setState(43);
     match(polynomParser::POW);
-    setState(49);
-    _errHandler->sync(this);
-    switch (_input->LA(1)) {
-      case polynomParser::INT: {
-        setState(46);
-        match(polynomParser::INT);
-        break;
-      }
-
-      case polynomParser::SUB: {
-        setState(47);
-        match(polynomParser::SUB);
-        setState(48);
-        match(polynomParser::INT);
-        break;
-      }
-
-    default:
-      throw NoViableAltException(this);
-    }
+    setState(44);
+    match(polynomParser::INT);
    
   }
   catch (RecognitionException &e) {

@@ -64,7 +64,6 @@ public:
     virtual size_t getRuleIndex() const override;
     std::vector<MonomContext *> monom();
     MonomContext* monom(size_t i);
-    antlr4::tree::TerminalNode *EOF();
     std::vector<antlr4::tree::TerminalNode *> ADD();
     antlr4::tree::TerminalNode* ADD(size_t i);
     std::vector<antlr4::tree::TerminalNode *> SUB();
@@ -82,7 +81,6 @@ public:
     MonomContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
     antlr4::tree::TerminalNode *FLOAT();
-    antlr4::tree::TerminalNode *INT();
     std::vector<antlr4::tree::TerminalNode *> MUL();
     antlr4::tree::TerminalNode* MUL(size_t i);
     std::vector<VarCloseContext *> varClose();
@@ -102,7 +100,6 @@ public:
     antlr4::tree::TerminalNode *VAR();
     antlr4::tree::TerminalNode *POW();
     antlr4::tree::TerminalNode *INT();
-    antlr4::tree::TerminalNode *SUB();
 
 
     virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;

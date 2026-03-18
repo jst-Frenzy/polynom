@@ -6,10 +6,10 @@ set(CMAKE_CXX_STANDARD 17)
 
 set(TARGET parser)
 
-set(ANTLR_DIR "D:/antlrGen/antlr-4.13.2")
+set(ANTLR_DIR "P:/antlrGen/antlr-4.13.2")
 
-set(ANTLR_INCLUDE_DIR "D:/antlrGen/antlr-4.13.2/include/antlr4-runtime")
-set(ANTLR_LIB "D:/antlrGen/antlr-4.13.2/lib/antlr4-runtime.lib")
+set(ANTLR_INCLUDE_DIR "P:/antlrGen/antlr-4.13.2/include/antlr4-runtime")
+set(ANTLR_LIB "P:/antlrGen/antlr-4.13.2/lib/antlr4-runtime.lib")
 
 file(GLOB PARSER_SOURCE "*.c*")
 file(GLOB PARSER_HEADERS "*.h*")

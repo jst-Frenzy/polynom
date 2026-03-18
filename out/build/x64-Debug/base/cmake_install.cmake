@@ -1,8 +1,8 @@
-# Install script for directory: C:/projects/vs/polynomy/base
+# Install script for directory: C:/Users/Антон/source/repos/polynomy/base
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/projects/vs/polynomy/out/install/x64-Debug")
+  set(CMAKE_INSTALL_PREFIX "C:/Users/Антон/source/repos/polynomy/out/install/x64-Debug")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 

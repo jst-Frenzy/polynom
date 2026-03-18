@@ -18,11 +18,11 @@ foreach(sample_filename ${samples_list})
             ${CMAKE_SOURCE_DIR} 
             ${CMAKE_SOURCE_DIR}/parser
             ${CMAKE_SOURCE_DIR}/base
-            "D:/antlrGen/antlr-4.13.2/include/antlr4-runtime"
+            "P:/antlrGen/antlr-4.13.2/include/antlr4-runtime"
   )
   add_custom_command(TARGET ${sample} POST_BUILD
   COMMAND ${CMAKE_COMMAND} -E copy_if_different
-            "D:/antlrGen/antlr-4.13.2/bin/antlr4-runtime.dll"
+            "P:/antlrGen/antlr-4.13.2/bin/antlr4-runtime.dll"
             $<TARGET_FILE_DIR:${sample}>
   )
   set_target_properties(${sample} PROPERTIES
