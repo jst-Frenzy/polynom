@@ -17,7 +17,8 @@ struct Monom {
 		coef(_coef), d(_deg), next(nullptr) {
 	}
 	Monom(double _coef, deg _deg, Monom* _next) :
-		coef(_coef), d(_deg), next(_next) { }
+		coef(_coef), d(_deg), next(_next) {
+	}
 };
 
 class Polynom {
@@ -31,7 +32,7 @@ class Polynom {
 		return d;
 	}
 public:
-	Polynom(): fp(nullptr){}
+	Polynom() : fp(nullptr) {}
 	Polynom(const Polynom& copy) {
 		fp = nullptr;
 
@@ -76,7 +77,7 @@ public:
 		}
 
 		deg d = getDeg(xDeg, yDeg, zDeg);
-		
+
 		int newDegrees = d.degrees;
 
 		if (fp == nullptr) {
@@ -86,9 +87,9 @@ public:
 
 		Monom* prev = nullptr;
 		Monom* curr = fp;
-		
+
 		while (curr != nullptr) {
-			int currDegrees = d.degrees;
+			int currDegrees = curr->d.degrees;
 
 			if (newDegrees == currDegrees) {
 				curr->coef += coef;
@@ -104,19 +105,33 @@ public:
 				}
 				return;
 			}
+			// chtoby otsortirovanno dobavlyat monomy
+			if (newDegrees < currDegrees) {
+				Monom* m = new Monom(coef, d);
+				m->next = curr;
+
+				if (prev == nullptr) {
+					fp = m;
+				}
+				else {
+					prev->next = m;
+				}
+			}
 			prev = curr;
 			curr = curr->next;
 		}
-		
+
 		Monom* m = new Monom(coef, d);
-		m->next = curr;
-		
+		m->next = nullptr;
+		prev->next = m;
+		/*m->next = curr;
+
 		if (prev == nullptr) {
 			fp = m;
 		}
 		else {
 			prev->next = m;
-		}
+		}*/
 
 	}
 
@@ -125,7 +140,7 @@ public:
 			std::cout << "0" << std::endl;
 			return;
 		}
-		
+
 		bool first = true;
 		Monom* curr = fp;
 
@@ -238,23 +253,164 @@ public:
 	}
 
 	Polynom operator+(const Polynom& other) {
-		Polynom res = *this;
+		Polynom res;
 
+		Monom* pol1 = fp;
 		Monom* curr = other.fp;
-		while (curr != nullptr) {
-			res.addMonom(curr->coef, curr->d.degree[0], curr->d.degree[1], curr->d.degree[2]);
-			curr = curr->next;
+		Monom* last = nullptr;
+
+		while (curr != nullptr && pol1 != nullptr) {
+			if (pol1->d.degrees > curr->d.degrees) {
+				Monom* m = new Monom(curr->coef, curr->d.degrees);
+				m->next = nullptr;
+				if (last == nullptr) {
+					res.fp = m;
+				}
+				else {
+					last->next = m;
+				}
+				last = m;
+
+				curr = curr->next;
+			}
+			else if (pol1->d.degrees < curr->d.degrees) {
+				Monom* m = new Monom(curr->coef, curr->d.degrees);
+				m->next = nullptr;
+				if (last == nullptr) {
+					res.fp = m;
+				}
+				else {
+					last->next = m;
+				}
+				last = m;
+
+				pol1 = pol1->next;
+			}
+			else {
+				double newCoef = curr->coef + pol1->coef;
+				if (newCoef != 0) {
+					Monom* m = new Monom(newCoef, curr->d);
+					m->next = nullptr;
+					if (last == nullptr) {
+						res.fp = m;
+					}
+					else {
+						last->next = m;
+					}
+					last = m;
+				}
+				pol1 = pol1->next;
+				curr = curr->next;
+			}
+
+			while (pol1 != nullptr) {
+				Monom* m = new Monom(newCoef, curr->d);
+				m->next = nullptr;
+				if (last == nullptr) {
+					res.fp = m;
+				}
+				else {
+					last->next = m;
+				}
+				last = m;
+				pol1 = pol1->next;
+			}
+			while (curr != nullptr) {
+				Monom* m = new Monom(newCoef, curr->d);
+				m->next = nullptr;
+				if (last == nullptr) {
+					res.fp = m;
+				}
+				else {
+					last->next = m;
+				}
+				last = m;
+				curr = curr->next;
+			}
+			//res.addMonom(curr->coef, curr->d.degree[0], curr->d.degree[1], curr->d.degree[2]);
+			//curr = curr->next;
 		}
+
 		return res;
 	}
 
 	Polynom operator-(const Polynom& other) {
-		Polynom res = *this;
+		Polynom res;
 
+		Monom* pol1 = fp;
 		Monom* curr = other.fp;
-		while (curr != nullptr) {
-			res.addMonom(- curr->coef, curr->d.degree[0], curr->d.degree[1], curr->d.degree[2]);
-			curr = curr->next;
+		Monom* last = nullptr;
+
+		while (curr != nullptr && pol1 != nullptr) {
+			if (pol1->d.degrees > curr->d.degrees) {
+				Monom* m = new Monom(-curr->coef, curr->d.degrees);
+				m->next = nullptr;
+				if (last == nullptr) {
+					res.fp = m;
+				}
+				else {
+					last->next = m;
+				}
+				last = m;
+
+				curr = curr->next;
+			}
+			else if (pol1->d.degrees < curr->d.degrees) {
+				Monom* m = new Monom(pol1->coef, pol1->d.degrees);
+				m->next = nullptr;
+				if (last == nullptr) {
+					res.fp = m;
+				}
+				else {
+					last->next = m;
+				}
+				last = m;
+
+				pol1 = pol1->next;
+			}
+			else {
+				double newCoef = curr->coef - pol1->coef;
+				if (newCoef != 0) {
+					Monom* m = new Monom(newCoef, curr->d);
+					m->next = nullptr;
+					if (last == nullptr) {
+						res.fp = m;
+					}
+					else {
+						last->next = m;
+					}
+					last = m;
+				}
+				pol1 = pol1->next;
+				curr = curr->next;
+			}
+
+			while (pol1 != nullptr) {
+				Monom* m = new Monom(newCoef, curr->d);
+				m->next = nullptr;
+				if (last == nullptr) {
+					res.fp = m;
+				}
+				else {
+					last->next = m;
+				}
+				last = m;
+				pol1 = pol1->next;
+			}
+			while (curr != nullptr) {
+				Monom* m = new Monom(-newCoef, curr->d);
+				m->next = nullptr;
+				if (last == nullptr) {
+					res.fp = m;
+				}
+				else {
+					last->next = m;
+				}
+				last = m;
+				curr = curr->next;
+			}
+			//res.addMonom(- curr->coef, curr->d.degree[0], curr->d.degree[1], curr->d.degree[2]);
+			//curr = curr->next;
 		}
 
 		return res;
