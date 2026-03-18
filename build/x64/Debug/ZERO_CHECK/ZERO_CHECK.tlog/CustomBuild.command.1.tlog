@@ -1,0 +1,10 @@
+^C:\PROJECTS\VS\POLYNOMY\BUILD\CMAKEFILES\60CF4230E046743BA38C6FFAE4C58F1E\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/projects/vs/polynomy -BC:/projects/vs/polynomy/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/projects/vs/polynomy/build/mp2-lab4.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
